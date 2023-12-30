@@ -27,8 +27,12 @@ public class Catogory extends BaseEntity{
     private Short hocKy;
     @Column(name = "ly_do")
     private String lyDo;
+    @Column(name = "attachment")
+    private String attachment;
     @Column(name = "phan_hoi")
     private String phanHoi;
+    @Column(name = "attachment_admin")
+    private String attachmenAdmin;
     @Column(name = "status")
     private Short status;
 

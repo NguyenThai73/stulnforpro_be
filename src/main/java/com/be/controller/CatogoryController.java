@@ -3,6 +3,7 @@ package com.be.controller;
 import com.be.common_api.Catogory;
 import com.be.dto.CatogoryDto;
 import com.be.mapper.CatogoryMapper;
+import com.be.repository.CatogoryRepository;
 import com.be.service.CatogoryService;
 import com.llq.springfilter.boot.Filter;
 import io.swagger.annotations.Api;
@@ -28,13 +29,16 @@ import java.util.stream.Collectors;
 @Api("catogory")
 public class CatogoryController {
     private final CatogoryService catogoryService;
+    private final CatogoryRepository repository;
 
-    public CatogoryController(CatogoryService catogoryService) {
+    public CatogoryController(CatogoryService catogoryService, CatogoryRepository repository) {
         this.catogoryService = catogoryService;
+        this.repository = repository;
     }
 
     @PostMapping("/post")
     public ResponseEntity<Long> save(@RequestBody @Validated CatogoryDto catogoryDto) {
+
         CatogoryDto item =  catogoryService.save(catogoryDto);
         return ResponseEntity.ok(item.getId());
     }
@@ -62,9 +66,9 @@ public class CatogoryController {
     }
 
     @PutMapping("/put/{id}")
-    public ResponseEntity<Void> update(@RequestBody @Validated CatogoryDto catogoryDto, @PathVariable("id") Long id) {
-        catogoryDto.setId(id);
-        catogoryService.update(catogoryDto, id);
+    public ResponseEntity<Void> update(@RequestBody @Validated Catogory catogory, @PathVariable("id") Long id) {
+        catogory.setId(id);
+        repository.save(catogory);
         return ResponseEntity.ok().build();
     }
 }

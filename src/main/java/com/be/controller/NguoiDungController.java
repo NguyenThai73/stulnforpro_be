@@ -78,6 +78,21 @@ public class NguoiDungController {
         }
         return ResponseEntity.ok(result);
     }
+
+
+    @PostMapping("/getByEmail")
+    public ResponseEntity<Map<String, Object>> loginPass(@RequestBody @Validated String email) {
+        Map<String, Object> result =new HashMap<String, Object>();
+        try {
+            NguoiDung nguoiDung = repository.findByUsername(email);
+            result.put("result", nguoiDung);
+            result.put("success", true);
+        }catch (Exception e){
+            result.put("result",e.getMessage());
+            result.put("success", false);
+        }
+        return ResponseEntity.ok(result);
+    }
     @PostMapping("/login")
     public ResponseEntity<Map<String, Object>> loginPass(@RequestBody @Validated UserLogin userLogin) {
         Map<String, Object> result =new HashMap<String, Object>();

@@ -10,19 +10,18 @@ import javax.validation.constraints.Size;
 @ApiModel()
 @Getter
 @Setter
-public class CatogoryDto extends BaseDto {
-    private Short type;
-    private Long idSv;
+public class CourseDto extends BaseDto {
+    private Long idDn;
     private NguoiDung nguoiDung;
+    private Short type;
     @Size(max = 255)
-    private String namHoc;
-    private Short hocKy;
-    private String lyDo;
-    private String attachment;
-    private String attachmenAdmin;
-    private String phanHoi;
+    private String title;
+    private String moTa;
+    private String url;
+    private String urlKhaiGiang;
+    private Short views;
     private Short status;
 
-    public CatogoryDto() {
+    public CourseDto() {
     }
 }

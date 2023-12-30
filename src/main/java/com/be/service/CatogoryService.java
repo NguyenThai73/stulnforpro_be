@@ -55,7 +55,9 @@ public class CatogoryService {
 
     public CatogoryDto update(CatogoryDto catogoryDto, Long id) {
         CatogoryDto data = findById(id);
+        System.out.printf("==================="+catogoryDto.getAttachment()+"========================");
         Catogory entity = catogoryMapper.toEntity(catogoryDto);
+        entity.setAttachment(catogoryDto.getAttachment());
         BeanUtils.copyProperties(data, entity, Utils.getNullPropertyNames(entity));
         return save(catogoryMapper.toDto(entity));
     }

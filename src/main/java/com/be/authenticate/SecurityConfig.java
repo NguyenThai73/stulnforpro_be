@@ -59,12 +59,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     String[] PUBLIC_LIST = {
-//            "/api/test/post","/api/test/get/*","/api/test/put/*","/api/test/del/*",document
+//            "/api/test/post","/api/test/get/*","/api/test/put/*","/api/test/del/*",
             "/api/upload","/api/files/*",
-            "/api/nguoi-dung/create","/api/nguoi-dung/login","/api/nguoi-dung/get/*","/api/nguoi-dung/put/*","/api/nguoi-dung/del/*","/api/nguoi-dung/change-pass/*",
+            "/api/nguoi-dung/create","/api/nguoi-dung/login","/api/nguoi-dung/get/*","/api/nguoi-dung/put/*","/api/nguoi-dung/del/*","/api/nguoi-dung/change-pass/*","/api/nguoi-dung/getByEmail",
             "/api/catogory/post","/api/catogory/get/*","/api/catogory/put/*","/api/catogory/del/*",
             "/api/message/post","/api/message/get/*","/api/message/del/*","/api/message/put/*",
             "/api/document/post","/api/document/get/*","/api/document/put/*","/api/document/del/*",
+            "/api/course/post","/api/course/get/*","/api/course/put/*","/api/course/del/*",
+            "/api/course-comment/post","/api/course-comment/get/*","/api/course-comment/put/*","/api/course-comment/del/*",
     };
 
     String[] ADMIN_LIST_PRIVATE = {
